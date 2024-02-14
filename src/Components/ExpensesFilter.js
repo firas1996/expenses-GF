@@ -1,13 +1,13 @@
-import React from "react";
+import "./ExpensesFilter.css";
 
-const ExpensesFilter = () => {
+const ExpensesFilter = ({ years }) => {
   return (
-    <div>
+    <div className="expenses-filter expenses-filter__control">
       <label>Filter by year</label>
       <select>
-        <option>2023</option>
-        <option>2024</option>
-        <option>2025</option>
+        {years.map((item) => {
+          return <option value={item}>{item}</option>;
+        })}
       </select>
     </div>
   );
