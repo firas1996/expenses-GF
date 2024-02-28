@@ -4,14 +4,21 @@ import "./ExpensesContainer.css";
 import ExpensesFilter from "./ExpensesFilter";
 const ExpensesContainer = ({ expensesData }) => {
   const years = [
+    "All",
     ...new Set(expensesData.map((item) => item.date.getFullYear()).sort()),
   ];
-  const [selectedYear, setSelectedYear] = useState(years[0]);
-  console.log(selectedYear);
+  const [selectedYear, setSelectedYear] = useState(years[2]);
+  const dataFiltre = expensesData.filter((item) => {
+    return selectedYear == item.date.getFullYear();
+  });
   return (
     <div className="expenses">
-      <ExpensesFilter years={years} setSelectedYear={setSelectedYear} />
-      {expensesData.map((x) => {
+      <ExpensesFilter
+        years={years}
+        setSelectedYear={setSelectedYear}
+        selectedYear={selectedYear}
+      />
+      {dataFiltre.map((x) => {
         return <ExpenseItem title={x.title} price={x.price} date={x.date} />;
       })}
     </div>
