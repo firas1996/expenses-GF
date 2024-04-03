@@ -25,9 +25,9 @@ const ChartModel = ({ dataFiltre }) => {
   const max = Math.max(...values);
   console.log(max);
   const total = values.reduce((x, y) => {
-    return x, y;
+    return x + y;
   });
-  return <Container data={chartData} />;
+  return <Container data={chartData} max={max} total={total} />;
 };
 
 export default ChartModel;
