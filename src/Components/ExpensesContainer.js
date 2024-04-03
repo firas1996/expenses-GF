@@ -21,7 +21,7 @@ const ExpensesContainer = ({ expensesData }) => {
         setSelectedYear={setSelectedYear}
         selectedYear={selectedYear}
       />
-      <ChartModel />
+      <ChartModel dataFiltre={dataFiltre} />
       {dataFiltre.map((x) => {
         return <ExpenseItem title={x.title} price={x.price} date={x.date} />;
       })}

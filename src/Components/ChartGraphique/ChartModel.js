@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "./Container";
 
-const ChartModel = () => {
+const ChartModel = ({ dataFiltre }) => {
   const chartData = [
     { month: "Jan", value: 0, nbr: 0 },
     { month: "Feb", value: 0, nbr: 0 },
@@ -16,6 +16,17 @@ const ChartModel = () => {
     { month: "Nov", value: 0, nbr: 0 },
     { month: "Dec", value: 0, nbr: 0 },
   ];
+  for (const item of dataFiltre) {
+    chartData[item.date.getMonth()].value += item.price;
+  }
+  console.log(chartData);
+  const values = chartData.map((el) => el.value);
+  // console.log(values);
+  const max = Math.max(...values);
+  console.log(max);
+  const total = values.reduce((x, y) => {
+    return x, y;
+  });
   return <Container data={chartData} />;
 };
 
