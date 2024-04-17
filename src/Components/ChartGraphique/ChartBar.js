@@ -1,6 +1,7 @@
 import "./ChartBar.css";
 
 const ChartBar = ({ label, value, max, total }) => {
+  //
   const x = (value * 100) / max + "%";
   return (
     <div className="chart-bar">
