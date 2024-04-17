@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./AddExpenseForm.css";
-
+let id = 5;
 const AddExpenseForm = ({ get }) => {
   //   const [title, setTitle] = useState("");
   //   const [price, setPrice] = useState("");
@@ -24,7 +24,13 @@ const AddExpenseForm = ({ get }) => {
   };
   const handelSubmit = (event) => {
     event.preventDefault();
-    get(data);
+    get({
+      id: id,
+      title: data.title,
+      price: +data.price,
+      date: new Date(data.date),
+    });
+    id++;
     setData({
       title: "",
       price: "",
