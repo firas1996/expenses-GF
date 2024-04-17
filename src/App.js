@@ -29,9 +29,12 @@ function App() {
       date: new Date(2025, 7, 30),
     },
   ];
+  const getData = (data) => {
+    console.log(data);
+  };
   return (
     <div>
-      <AddExpenseForm />
+      <AddExpenseForm get={getData} />
       <ExpensesContainer expensesData={expensesData} />
     </div>
   );
