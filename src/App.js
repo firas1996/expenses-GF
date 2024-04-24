@@ -1,9 +1,10 @@
+import { useState } from "react";
 import AddExpenseForm from "./Components/AddExpenseForm";
 import ExpenseItem from "./Components/ExpenseItem";
 import ExpensesContainer from "./Components/ExpensesContainer";
 
 function App() {
-  const expensesData = [
+  const defaultExpenses = [
     {
       id: 1,
       price: 7999,
@@ -29,8 +30,9 @@ function App() {
       date: new Date(2025, 7, 30),
     },
   ];
+  const [expensesData, setExpensesData] = useState(defaultExpenses);
   const getData = (data) => {
-    console.log(data);
+    setExpensesData([data, ...expensesData]);
   };
   return (
     <div>

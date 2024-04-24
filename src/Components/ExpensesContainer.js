@@ -23,7 +23,14 @@ const ExpensesContainer = ({ expensesData }) => {
       />
       <ChartModel dataFiltre={dataFiltre} />
       {dataFiltre.map((x) => {
-        return <ExpenseItem title={x.title} price={x.price} date={x.date} />;
+        return (
+          <ExpenseItem
+            key={x.id}
+            title={x.title}
+            price={x.price}
+            date={x.date}
+          />
+        );
       })}
     </div>
   );

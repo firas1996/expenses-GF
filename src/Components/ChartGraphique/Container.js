@@ -6,6 +6,7 @@ const Container = ({ data, max, total }) => {
     <div className="container">
       {data.map((item) => (
         <ChartBar
+          key={item.month}
           label={item.month}
           value={item.value}
           max={max}
